@@ -1,12 +1,13 @@
 <script lang="ts">
   import Video from './Video.svelte';
-  
-  let { portableText, context } = $props();
+  import type { CustomBlockComponentProps } from '@portabletext/svelte';
+  import type { LandingPage } from '../model';
+
+  let { portableText }: {portableText: CustomBlockComponentProps<{componentOrItem: {_ref: string}}, {element: LandingPage["elements"]["body_copy"]}>} = $props();
   
   const item = $derived(
-    context?.element?.linkedItems?.find(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (item: any) => item.system.codename === portableText.componentOrItem._ref
+    portableText.global.context?.element?.linkedItems?.find(
+      (item) => item.system.codename === portableText.value.componentOrItem._ref
     )
   );
 </script>
@@ -14,5 +15,5 @@
 {#if item}
   <Video video={item} />
 {:else}
-  <div>Did not find any item with codename {portableText.componentOrItem._ref}</div>
+  <div>Did not find any item with codename {portableText.value.componentOrItem._ref}</div>
 {/if}

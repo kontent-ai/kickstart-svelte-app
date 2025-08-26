@@ -3,6 +3,7 @@
   import type { LandingPage } from "../model";
   import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
   import { defaultPortableRichTextComponents } from "../utils/richtext";
+  import ComponentOrItem from "./ComponentOrItem.svelte";
   
   let { body }: { body: LandingPage["elements"]["body_copy"] } = $props();
   
@@ -10,9 +11,9 @@
   
   const components = $derived({
     ...defaultPortableRichTextComponents,
-    // types: {
-    //   componentOrItem: ComponentOrItem
-    // }
+    types: {
+      componentOrItem: ComponentOrItem
+    }
   });
 </script>
 
