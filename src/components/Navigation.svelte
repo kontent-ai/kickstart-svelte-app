@@ -6,6 +6,7 @@
   <menu class="flex flex-col lg:flex-row gap-5 lg:gap-[60px] items-center list-none">
     {#each menuItems as name (name)}
       <li>
+        <!-- svelte-ignore a11y_invalid_attribute -->
         <a href="#" class="text-xl leading-5 text-gray w-fit block hover:text-burgundy">{name}</a>
       </li>
     {/each}

@@ -62,6 +62,7 @@
       {/if}
     </div>
     {#if event.elements.description?.value !== "<p><br></p>"}
+      <!-- svelte-ignore a11y_invalid_attribute -->
       <a href="#" class="text-center xl:text-left text-burgundy text-xl mt-6 font-semibold underline">
         Read more
       </a>

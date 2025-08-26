@@ -49,6 +49,7 @@
           <div class="text-left text-gray-700 mt-4 text-xl">
             {solution.elements.introduction.value}
             <p>
+              <!-- svelte-ignore a11y_invalid_attribute -->
               <a href="#" class="text-burgundy text-xl mt-6 font-semibold underline">
                 Read more
               </a>

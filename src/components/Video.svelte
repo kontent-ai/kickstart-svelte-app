@@ -28,7 +28,7 @@
         }`}
         referrerpolicy="strict-origin-when-cross-origin"
         allow="autoplay"
-      />
+      ></iframe>
       {#if video.elements.caption}
         <figcaption class="text-gray-light block m-auto w-fit text-xl pt-6">
           {video.elements.caption.value}
