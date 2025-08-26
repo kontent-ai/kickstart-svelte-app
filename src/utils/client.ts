@@ -1,5 +1,5 @@
 import { createDeliveryClient } from "@kontent-ai/delivery-sdk";
-import { CoreClientTypes } from "../model";
+import type { CoreClientTypes } from "../model/system/core.type";
 
 export const createClient = (environmentId: string, previewApiKey: string) =>
   createDeliveryClient<CoreClientTypes>({
