@@ -1,11 +1,11 @@
 <script lang="ts">
   import { PortableText } from "@portabletext/svelte";
-  import type { LandingPage } from "../model";
+  import type { LandingPageType } from "../model";
   import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
   import { defaultPortableRichTextComponents } from "../utils/richtext";
   import ComponentOrItem from "./ComponentOrItem.svelte";
   
-  let { body }: { body: LandingPage["elements"]["body_copy"] } = $props();
+  let { body }: { body: LandingPageType["elements"]["body_copy"] } = $props();
   
   const portableText = $derived(transformToPortableText(body.value));
   

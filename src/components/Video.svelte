@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Video as VideoType } from "../model";
+  import type { VideoType } from "../model";
   import type { Replace } from "../utils/types";
   
   let { video }: { video: Replace<VideoType, { elements: Partial<VideoType["elements"]> }> } = $props();

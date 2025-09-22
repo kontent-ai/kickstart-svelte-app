@@ -1,14 +1,14 @@
 <script lang="ts">
   import { createClient } from "../utils/client";
   import { appConfig } from "../lib/stores/app.svelte";
-  import type { Solution } from "../model/content-types/solution";
+  import type { SolutionType } from "../model";
   import { DeliveryError } from "@kontent-ai/delivery-sdk";
   
-  let solutions = $state<ReadonlyArray<Solution> | null>(null);
+  let solutions = $state<ReadonlyArray<SolutionType> | null>(null);
   
   $effect(() => {
     createClient(appConfig.environmentId, appConfig.apiKey)
-      .items<Solution>()
+      .items<SolutionType>()
       .type("solution")
       .toPromise()
       .then(res => solutions = res.data.items)

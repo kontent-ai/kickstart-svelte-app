@@ -1,9 +1,9 @@
 <script lang="ts">
   import Video from './Video.svelte';
   import type { CustomBlockComponentProps } from '@portabletext/svelte';
-  import type { LandingPage } from '../model';
+  import type { LandingPageType } from '../model';
 
-  let { portableText }: {portableText: CustomBlockComponentProps<{componentOrItem: {_ref: string}}, {element: LandingPage["elements"]["body_copy"]}>} = $props();
+  let { portableText }: {portableText: CustomBlockComponentProps<{componentOrItem: {_ref: string}}, {element: LandingPageType["elements"]["body_copy"]}>} = $props();
   
   const item = $derived(
     portableText.global.context?.element?.linkedItems?.find(

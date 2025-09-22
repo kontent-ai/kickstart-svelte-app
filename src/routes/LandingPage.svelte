@@ -4,7 +4,7 @@
   import PageContent from "../components/PageContent.svelte";
   import PageSection from "../components/PageSection.svelte";
   import "../index.css";
-  import type { LandingPage } from "../model";
+  import type { LandingPageType } from "../model";
   import { createClient } from "../utils/client";
   import { appConfig } from "../lib/stores/app.svelte";
   import type { Replace } from "../utils/types";
@@ -12,7 +12,7 @@
   import Layout from "../components/Layout.svelte";
   import SolutionListItem from "../components/SolutionListItem.svelte";
 
-  let landingPage = $state<Replace<LandingPage, { elements: Partial<LandingPage["elements"]> }> | null>(null);
+  let landingPage = $state<Replace<LandingPageType, { elements: Partial<LandingPageType["elements"]> }> | null>(null);
   let loading = $state(true);
 
   $effect(() => {
@@ -22,7 +22,7 @@
       .limitParameter(1)
       .toPromise()
       .then(res => {
-        landingPage = res.data.items[0] as Replace<LandingPage, { elements: Partial<LandingPage["elements"]> }> ?? null;
+        landingPage = res.data.items[0] as Replace<LandingPageType, { elements: Partial<LandingPageType["elements"]> }> ?? null;
         loading = false;
       })
       .catch((err) => {
