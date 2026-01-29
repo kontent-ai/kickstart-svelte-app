@@ -1,31 +1,32 @@
 <script lang="ts">
-  import { PortableText } from "@portabletext/svelte";
-  import FeaturedComponentBase from "./FeaturedComponentBase.svelte";
-  import type { EventType } from "../model";
-  import { formatDate } from "../utils/date";
-  import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
-  import type { Replace } from "../utils/types";
-  
-  let { event }: { event: Replace<EventType, { elements: Partial<EventType["elements"]> }> } = $props();
-  
-  const shouldRender = $derived(Object.entries(event.elements).length > 0);
-  
-  const portableText = $derived(
-    event.elements.description?.value 
-      ? transformToPortableText(event.elements.description.value) 
-      : []
-  );
-  
-  const dateRange = $derived(() => {
-    if (!event.elements.start_date?.value) return "";
-    
-    const start = formatDate(event.elements.start_date.value as string);
-    const end = event.elements.end_date?.value 
-      ? ` - ${formatDate(event.elements.end_date.value as string)}`
-      : "";
-    
-    return start + end;
-  });
+import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
+import { PortableText } from "@portabletext/svelte";
+import type { EventType } from "../model";
+import { formatDate } from "../utils/date";
+import type { Replace } from "../utils/types";
+import FeaturedComponentBase from "./FeaturedComponentBase.svelte";
+
+let { event }: { event: Replace<EventType, { elements: Partial<EventType["elements"]> }> } =
+  $props();
+
+const shouldRender = $derived(Object.entries(event.elements).length > 0);
+
+const portableText = $derived(
+  event.elements.description?.value
+    ? transformToPortableText(event.elements.description.value)
+    : [],
+);
+
+const dateRange = $derived(() => {
+  if (!event.elements.start_date?.value) return "";
+
+  const start = formatDate(event.elements.start_date.value as string);
+  const end = event.elements.end_date?.value
+    ? ` - ${formatDate(event.elements.end_date.value as string)}`
+    : "";
+
+  return start + end;
+});
 </script>
 
 {#if shouldRender}

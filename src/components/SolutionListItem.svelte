@@ -1,25 +1,25 @@
 <script lang="ts">
-  import { createClient } from "../utils/client";
-  import { appConfig } from "../lib/stores/app.svelte";
-  import type { SolutionType } from "../model";
-  import { DeliveryError } from "@kontent-ai/delivery-sdk";
-  
-  let solutions = $state<ReadonlyArray<SolutionType> | null>(null);
-  
-  $effect(() => {
-    createClient(appConfig.environmentId, appConfig.apiKey)
-      .items<SolutionType>()
-      .type("solution")
-      .toPromise()
-      .then(res => solutions = res.data.items)
-      .catch((err) => {
-        if (err instanceof DeliveryError) {
-          solutions = null;
-        } else {
-          throw err;
-        }
-      });
-  });
+import { DeliveryError } from "@kontent-ai/delivery-sdk";
+import { appConfig } from "../lib/stores/app.svelte";
+import type { SolutionType } from "../model";
+import { createClient } from "../utils/client";
+
+let solutions = $state<ReadonlyArray<SolutionType> | null>(null);
+
+$effect(() => {
+  createClient(appConfig.environmentId, appConfig.apiKey)
+    .items<SolutionType>()
+    .type("solution")
+    .toPromise()
+    .then((res) => (solutions = res.data.items))
+    .catch((err) => {
+      if (err instanceof DeliveryError) {
+        solutions = null;
+      } else {
+        throw err;
+      }
+    });
+});
 </script>
 
 {#if solutions && solutions.length > 0}

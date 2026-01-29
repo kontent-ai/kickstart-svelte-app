@@ -1,5 +1,5 @@
 <script>
-  const menuItems = ["Solutions", "Products", "Pricing", "Contact", "Our Company"];
+const menuItems = ["Solutions", "Products", "Pricing", "Contact", "Our Company"];
 </script>
 
 <nav>

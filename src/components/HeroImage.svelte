@@ -1,15 +1,15 @@
 <script lang="ts">
-  import type { Elements } from "@kontent-ai/delivery-sdk";
-  
-  let { 
-    data 
-  }: { 
-    data: {
-      headline?: Elements.TextElement;
-      subheadline?: Elements.TextElement;
-      heroImage?: Elements.AssetsElement;
-    }
-  } = $props();
+import type { Elements } from "@kontent-ai/delivery-sdk";
+
+let {
+  data,
+}: {
+  data: {
+    headline?: Elements.TextElement;
+    subheadline?: Elements.TextElement;
+    heroImage?: Elements.AssetsElement;
+  };
+} = $props();
 </script>
 
 <div class="flex flex-col xl:flex-row pt-10 xl:pt-[104px] pb-10 xl:pb-[160px] gap-5">

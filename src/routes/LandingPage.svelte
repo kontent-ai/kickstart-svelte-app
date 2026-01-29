@@ -1,39 +1,46 @@
 <script lang="ts">
-  import { DeliveryError } from "@kontent-ai/delivery-sdk";
-  import HeroImage from "../components/HeroImage.svelte";
-  import PageContent from "../components/PageContent.svelte";
-  import PageSection from "../components/PageSection.svelte";
-  import "../index.css";
-  import type { LandingPageType } from "../model";
-  import { createClient } from "../utils/client";
-  import { appConfig } from "../lib/stores/app.svelte";
-  import type { Replace } from "../utils/types";
-  import FeaturedContent from "../components/FeaturedContent.svelte";
-  import Layout from "../components/Layout.svelte";
-  import SolutionListItem from "../components/SolutionListItem.svelte";
+import { DeliveryError } from "@kontent-ai/delivery-sdk";
+import HeroImage from "../components/HeroImage.svelte";
+import PageContent from "../components/PageContent.svelte";
+import PageSection from "../components/PageSection.svelte";
+import "../index.css";
+import FeaturedContent from "../components/FeaturedContent.svelte";
+import Layout from "../components/Layout.svelte";
+import SolutionListItem from "../components/SolutionListItem.svelte";
+import { appConfig } from "../lib/stores/app.svelte";
+import type { LandingPageType } from "../model";
+import { createClient } from "../utils/client";
+import type { Replace } from "../utils/types";
 
-  let landingPage = $state<Replace<LandingPageType, { elements: Partial<LandingPageType["elements"]> }> | null>(null);
-  let loading = $state(true);
+let landingPage = $state<Replace<
+  LandingPageType,
+  { elements: Partial<LandingPageType["elements"]> }
+> | null>(null);
+let loading = $state(true);
 
-  $effect(() => {
-    createClient(appConfig.environmentId, appConfig.apiKey)
-      .items()
-      .type("landing_page")
-      .limitParameter(1)
-      .toPromise()
-      .then(res => {
-        landingPage = res.data.items[0] as Replace<LandingPageType, { elements: Partial<LandingPageType["elements"]> }> ?? null;
-        loading = false;
-      })
-      .catch((err) => {
-        if (err instanceof DeliveryError) {
-          landingPage = null;
-        } else {
-          throw err;
-        }
-        loading = false;
-      });
-  });
+$effect(() => {
+  createClient(appConfig.environmentId, appConfig.apiKey)
+    .items()
+    .type("landing_page")
+    .limitParameter(1)
+    .toPromise()
+    .then((res) => {
+      landingPage =
+        (res.data.items[0] as Replace<
+          LandingPageType,
+          { elements: Partial<LandingPageType["elements"]> }
+        >) ?? null;
+      loading = false;
+    })
+    .catch((err) => {
+      if (err instanceof DeliveryError) {
+        landingPage = null;
+      } else {
+        throw err;
+      }
+      loading = false;
+    });
+});
 </script>
 
 <Layout>
