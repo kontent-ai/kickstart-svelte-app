@@ -8,8 +8,8 @@
     "build": "npm run check && vite build",
     "check": "svelte-check --tsconfig ./tsconfig.app.json",
     "lint": "eslint ./src",
-    "fmt": "dprint fmt",
-    "fmt:check": "dprint check",
+    "fmt": "biome format --write .",
+    "fmt:check": "biome format .",
     "model:generate": "npx tsx ./scripts/generateModel.ts",
     "model:import": "npx tsx ./scripts/importProject.ts",
     "preview": "vite preview"
@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.13",
-    "@eslint/js": "^9.39.2",
     "@kontent-ai/biome-config": "^0.7.0",
     "@kontent-ai/data-ops": "^2.5.0",
     "@kontent-ai/model-generator": "^9.1.1",
