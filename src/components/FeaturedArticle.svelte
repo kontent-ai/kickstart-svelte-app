@@ -1,19 +1,20 @@
 <script lang="ts">
-  import FeaturedComponentBase from "./FeaturedComponentBase.svelte";
-  import type { ArticleType } from "../model";
-  import type { Replace } from "../utils/types";
-  
-  let { article }: { article: Replace<ArticleType, { elements: Partial<ArticleType["elements"]> }> } = $props();
-  
-  const shouldRender = $derived(Object.entries(article.elements).length > 0);
-  
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      month: "short",
-      year: "numeric",
-      day: "numeric",
-    });
-  };
+import FeaturedComponentBase from "./FeaturedComponentBase.svelte";
+import type { ArticleType } from "../model";
+import type { Replace } from "../utils/types";
+
+let { article }: { article: Replace<ArticleType, { elements: Partial<ArticleType["elements"]> }> } =
+  $props();
+
+const shouldRender = $derived(Object.entries(article.elements).length > 0);
+
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+    day: "numeric",
+  });
+};
 </script>
 
 {#if shouldRender}

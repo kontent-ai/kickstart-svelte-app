@@ -1,18 +1,18 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
-  import type { Elements } from "@kontent-ai/delivery-sdk";
-  
-  let { 
-    type, 
-    image, 
-    children 
-  }: { 
-    type: "article" | "event";
-    image?: Elements.AssetsElement;
-    children: Snippet;
-  } = $props();
-  
-  const img = $derived(image?.value[0]);
+import type { Snippet } from "svelte";
+import type { Elements } from "@kontent-ai/delivery-sdk";
+
+let {
+  type,
+  image,
+  children,
+}: {
+  type: "article" | "event";
+  image?: Elements.AssetsElement;
+  children: Snippet;
+} = $props();
+
+const img = $derived(image?.value[0]);
 </script>
 
 <div class="flex flex-col gap-5 xl:gap-16 xl:flex-row py-5 xl:py-[104px] items-center">

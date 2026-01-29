@@ -1,14 +1,15 @@
 <script lang="ts">
-  import { type LandingPageType, isArticleType, isEventType } from "../model";
-  import PageSection from "./PageSection.svelte";
-  import FeaturedArticle from "./FeaturedArticle.svelte";
-  import FeaturedEvent from "./FeaturedEvent.svelte";
-  import Divider from "./Divider.svelte";
-  
-  let { featuredContent }: { featuredContent: LandingPageType["elements"]["featured_content"] } = $props();
-  
-  const featuredArticle = $derived(featuredContent.linkedItems.find(isArticleType));
-  const featuredEvent = $derived(featuredContent.linkedItems.find(isEventType));
+import { type LandingPageType, isArticleType, isEventType } from "../model";
+import PageSection from "./PageSection.svelte";
+import FeaturedArticle from "./FeaturedArticle.svelte";
+import FeaturedEvent from "./FeaturedEvent.svelte";
+import Divider from "./Divider.svelte";
+
+let { featuredContent }: { featuredContent: LandingPageType["elements"]["featured_content"] } =
+  $props();
+
+const featuredArticle = $derived(featuredContent.linkedItems.find(isArticleType));
+const featuredEvent = $derived(featuredContent.linkedItems.find(isEventType));
 </script>
 
 {#if featuredArticle || featuredEvent}

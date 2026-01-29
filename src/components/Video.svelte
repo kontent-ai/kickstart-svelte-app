@@ -1,8 +1,9 @@
 <script lang="ts">
-  import type { VideoType } from "../model";
-  import type { Replace } from "../utils/types";
-  
-  let { video }: { video: Replace<VideoType, { elements: Partial<VideoType["elements"]> }> } = $props();
+import type { VideoType } from "../model";
+import type { Replace } from "../utils/types";
+
+let { video }: { video: Replace<VideoType, { elements: Partial<VideoType["elements"]> }> } =
+  $props();
 </script>
 
 <div class="flex flex-col items-center">
