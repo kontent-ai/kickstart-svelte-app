@@ -1,6 +1,6 @@
 <script lang="ts">
-import type { Snippet } from "svelte";
 import type { Elements } from "@kontent-ai/delivery-sdk";
+import type { Snippet } from "svelte";
 
 let {
   type,

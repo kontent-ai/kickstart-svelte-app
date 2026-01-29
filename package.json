@@ -7,9 +7,10 @@
     "dev": "vite",
     "build": "npm run check && vite build",
     "check": "svelte-check --tsconfig ./tsconfig.app.json",
-    "lint": "eslint ./src",
-    "fmt": "biome format --write .",
-    "fmt:check": "biome format .",
+    "lint": "biome check && eslint ./src",
+    "lint:fix": "biome check --write && eslint ./src --fix",
+    "fmt": "biome format --write",
+    "fmt:check": "biome format",
     "model:generate": "npx tsx ./scripts/generateModel.ts",
     "model:import": "npx tsx ./scripts/importProject.ts",
     "preview": "vite preview"

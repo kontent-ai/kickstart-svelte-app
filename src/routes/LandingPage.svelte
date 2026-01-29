@@ -4,13 +4,13 @@ import HeroImage from "../components/HeroImage.svelte";
 import PageContent from "../components/PageContent.svelte";
 import PageSection from "../components/PageSection.svelte";
 import "../index.css";
-import type { LandingPageType } from "../model";
-import { createClient } from "../utils/client";
-import { appConfig } from "../lib/stores/app.svelte";
-import type { Replace } from "../utils/types";
 import FeaturedContent from "../components/FeaturedContent.svelte";
 import Layout from "../components/Layout.svelte";
 import SolutionListItem from "../components/SolutionListItem.svelte";
+import { appConfig } from "../lib/stores/app.svelte";
+import type { LandingPageType } from "../model";
+import { createClient } from "../utils/client";
+import type { Replace } from "../utils/types";
 
 let landingPage = $state<Replace<
   LandingPageType,

@@ -1,7 +1,7 @@
 <script lang="ts">
-import Video from "./Video.svelte";
 import type { CustomBlockComponentProps } from "@portabletext/svelte";
 import type { LandingPageType } from "../model";
+import Video from "./Video.svelte";
 
 let {
   portableText,

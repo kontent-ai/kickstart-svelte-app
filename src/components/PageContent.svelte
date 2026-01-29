@@ -1,7 +1,7 @@
 <script lang="ts">
+import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
 import { PortableText } from "@portabletext/svelte";
 import type { LandingPageType } from "../model";
-import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
 import { defaultPortableRichTextComponents } from "../utils/richtext";
 import ComponentOrItem from "./ComponentOrItem.svelte";
 

@@ -1,9 +1,9 @@
 <script lang="ts">
-import { type LandingPageType, isArticleType, isEventType } from "../model";
-import PageSection from "./PageSection.svelte";
+import { isArticleType, isEventType, type LandingPageType } from "../model";
+import Divider from "./Divider.svelte";
 import FeaturedArticle from "./FeaturedArticle.svelte";
 import FeaturedEvent from "./FeaturedEvent.svelte";
-import Divider from "./Divider.svelte";
+import PageSection from "./PageSection.svelte";
 
 let { featuredContent }: { featuredContent: LandingPageType["elements"]["featured_content"] } =
   $props();

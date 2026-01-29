@@ -1,6 +1,6 @@
+import svelte from "eslint-plugin-svelte";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import svelte from "eslint-plugin-svelte";
 
 export default tseslint.config(
   { ignores: ["dist", "**/*.ts", "**/*.js"] },

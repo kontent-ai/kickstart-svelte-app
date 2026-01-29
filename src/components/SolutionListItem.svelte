@@ -1,8 +1,8 @@
 <script lang="ts">
-import { createClient } from "../utils/client";
+import { DeliveryError } from "@kontent-ai/delivery-sdk";
 import { appConfig } from "../lib/stores/app.svelte";
 import type { SolutionType } from "../model";
-import { DeliveryError } from "@kontent-ai/delivery-sdk";
+import { createClient } from "../utils/client";
 
 let solutions = $state<ReadonlyArray<SolutionType> | null>(null);
 

@@ -1,5 +1,5 @@
-import dotenv from "dotenv";
 import { generateDeliveryModelsAsync, resolveCase } from "@kontent-ai/model-generator";
+import dotenv from "dotenv";
 
 dotenv.config();
 

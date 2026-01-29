@@ -1,10 +1,10 @@
 <script lang="ts">
+import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
 import { PortableText } from "@portabletext/svelte";
-import FeaturedComponentBase from "./FeaturedComponentBase.svelte";
 import type { EventType } from "../model";
 import { formatDate } from "../utils/date";
-import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
 import type { Replace } from "../utils/types";
+import FeaturedComponentBase from "./FeaturedComponentBase.svelte";
 
 let { event }: { event: Replace<EventType, { elements: Partial<EventType["elements"]> }> } =
   $props();

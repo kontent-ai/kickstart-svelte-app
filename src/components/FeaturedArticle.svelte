@@ -1,7 +1,7 @@
 <script lang="ts">
-import FeaturedComponentBase from "./FeaturedComponentBase.svelte";
 import type { ArticleType } from "../model";
 import type { Replace } from "../utils/types";
+import FeaturedComponentBase from "./FeaturedComponentBase.svelte";
 
 let { article }: { article: Replace<ArticleType, { elements: Partial<ArticleType["elements"]> }> } =
   $props();
